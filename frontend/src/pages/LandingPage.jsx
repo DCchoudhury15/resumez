@@ -4,6 +4,9 @@ import { LayoutTemplate,  X, Menu, ArrowRight, Zap, Download } from 'lucide-reac
 import { UserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { ProfileInfoCard } from '../components/Cards';
+import {SignUp} from "../components/SignUp.jsx";
+import {Login} from "../components/Login.jsx";
+import {Modal} from "../components/Modal.jsx" 
 
 const LandingPage = () => {
     const {user}=useContext(UserContext)
@@ -129,7 +132,7 @@ const LandingPage = () => {
                              </div>
                          </div>
 
-  <div className={landingPageStyles.heroIllustration}>
+                          <div className={landingPageStyles.heroIllustration}>
                             <div className={landingPageStyles.heroIllustrationBg}></div>
                             <div className={landingPageStyles.heroIllustrationContainer}>
                                 <svg
@@ -281,6 +284,17 @@ const LandingPage = () => {
                     </p>
                 </div>
                </footer>
+                 <Modal isOpen={openAuthModal} onClose={()=>{
+                    setOpenAuthModal(false)
+                    setCurrentPage("login")
+                 }} hideHeader>
+                    <div>
+                        {currentPage==="login" && <Login setCurrentPage={setCurrentPage}/>}
+                        {currentPage ==="signup" && <SignUp setCurrentPage={setCurrentPage}/>}
+                    </div>
+
+                 </Modal>
+
         </div>
     );
 
