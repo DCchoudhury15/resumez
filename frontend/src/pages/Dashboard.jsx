@@ -206,10 +206,7 @@ const handleDeleteClick=(id)=>{
                    <h3 className={styles.modalTitle}>Create New Resume</h3>
                    <button onClick={()=> setOpenCreateModal(false)} className={styles.modalCloseButton}>X</button>
             </div>
-            <CreateResumeForm onSuccess={()=>{
-              setOpenCreateModal(false);
-              fetchAllResumes();
-            }}/>
+            <CreateResumeForm />
 
           </div>
         </Modal>

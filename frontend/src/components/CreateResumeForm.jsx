@@ -24,10 +24,10 @@ const CreateResumeForm = () => {
              navigate(`/resume/${response.data?._id}`)
             }
         }
-        catch(error){
-            if(error.response && error.response.data.message){
-                setError(error.response.data.message)
-            }
+         catch(error){
+if(error.response?.data?.message){
+    setError(error.response.data.message)
+}
             else{
                 setError('Something went wrong, please try again later')
             }

@@ -32,7 +32,7 @@ const Login = ({setCurrentPage}) => {
         if(token){
             localStorage.setItem('token', token );
             updateUser(response.data);
-            navigate('/dasboard')
+            navigate('/dashboard')
         }
 
        } catch (error) {

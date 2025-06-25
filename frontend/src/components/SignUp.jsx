@@ -6,7 +6,7 @@ import {validateEmail} from '../utils/helper.js'
 import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths.js';
 import Input from './Input.jsx';
-import { Target } from 'lucide-react';
+
 const SignUp = ({setCurrentPage}) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -31,7 +31,7 @@ const handleSignup=async(e)=>{
    }
    setError('');
    try {
-    const response =await axiosInstance.post(API_PATHS.AUTH.REGISTER ,{
+      const response =await axiosInstance.post(API_PATHS.AUTH.REGISTER ,{
     name:fullName,
     email,
     password
