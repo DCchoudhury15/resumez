@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
-import { landingPageStyles } from '../assets/dummystyle';
+import { landingPageStyles } from '../assets/dummystyle.js';
 import { LayoutTemplate,  X, Menu, ArrowRight, Zap, Download } from 'lucide-react';
 import { UserContext } from '../context/UserContext';
 import { useNavigate } from 'react-router-dom';
 import { ProfileInfoCard } from '../components/Cards';
-import {SignUp} from "../components/SignUp.jsx";
-import {Login} from "../components/Login.jsx";
-import {Modal} from "../components/Modal.jsx" 
+import Login from "../components/Login.jsx";
+import Modal from "../components/Modal.jsx";
+import SignUp from "../components/SignUp.jsx";
+
 
 const LandingPage = () => {
     const {user}=useContext(UserContext)
@@ -97,7 +98,7 @@ const LandingPage = () => {
                              </h1>
                              <p className={landingPageStyles.description}>
                                 Create job-winning resumes with expertly designed templates.
-                                ATS-friendly, recruiter-approved, and tailored to your carrer goals.
+                                ATS-friendly, recruiter-approved, and tailored to your career goals.
                              </p>
                              <div className={landingPageStyles.ctaButtons}>
                                <button className={landingPageStyles.primaryButton}
@@ -204,7 +205,7 @@ const LandingPage = () => {
         
 
 
-                        </div>
+                    </div>
                    
                 </section>
                 <section className={landingPageStyles.featuresSection}>
@@ -284,17 +285,16 @@ const LandingPage = () => {
                     </p>
                 </div>
                </footer>
-                 <Modal isOpen={openAuthModal} onClose={()=>{
+                 
+                <Modal  isOpen={openAuthModal} onClose={() => {
                     setOpenAuthModal(false)
                     setCurrentPage("login")
-                 }} hideHeader>
+                }} hideHeader>
                     <div>
                         {currentPage==="login" && <Login setCurrentPage={setCurrentPage}/>}
-                        {currentPage ==="signup" && <SignUp setCurrentPage={setCurrentPage}/>}
+                        {currentPage === "signup" && <SignUp setCurrentPage={setCurrentPage}/>}
                     </div>
-
-                 </Modal>
-
+                </Modal>
         </div>
     );
 

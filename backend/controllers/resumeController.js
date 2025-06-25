@@ -68,7 +68,7 @@ export const createResume =async(req, res)=>{
             interests: [''],
         };
         const newResume=await Resume.create({
-            userId:req.user_id,
+            userId:req.user._id,
             title,
             ...defaultResumeData,
             ...req.body
