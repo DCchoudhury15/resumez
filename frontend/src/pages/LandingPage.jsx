@@ -143,14 +143,11 @@ const LandingPage = () => {
                                 >
                                     {/* Background */}
                                     <defs>
-                                        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stopColor="#8b5cf6" />
-                                            <stop offset="100%" stopColor="#d946ef" />
-                                        </linearGradient>
-                                        <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" stopColor="#ffffff" />
-                                            <stop offset="100%" stopColor="#f8fafc" />
-                                        </linearGradient>
+                                        
+ <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
++                                            <stop offset="0%" stopColor="#f1f5f9" />
++                                            <stop offset="100%" stopColor="#e2e8f0" />
++                                        </linearGradient>
                                     </defs>
 
                                     {/* SVG elements */}

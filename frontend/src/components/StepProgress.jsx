@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import {Check} from 'react-feather'
+import { Check } from 'lucide-react';
 import {shimmerStyle }from '../assets/dummystyle.js'
 const StepProgress = ({progress}) => {
     return (
