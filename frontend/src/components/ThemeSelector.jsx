@@ -69,11 +69,12 @@ const ThemeSelector = ({selectedTheme, setSelectedTheme, resumeData, onClose}) =
   <div
     className="lg:col-span-3 bg-gradient-to-br from-white via-violet-50 to-fuchsia-50 rounded-3xl border border-violet-100 shadow-xl p-4 sm:p-8 flex items-center justify-center min-h-[400px]"
     ref={resumeRef}
+      style={{ minWidth: 350, maxWidth: 700, width: "100%" }}
   >
     <RenderResume
       templateId={selectedTemplate?.theme || ""}
       resumeData={resumeData || DUMMY_RESUME_DATA}
-      containerWidth={baseWidth}
+      containerWidth={baseWidth < 350 ? 350 : baseWidth > 700 ? 700 : baseWidth}
     />
   </div>
 </div>
