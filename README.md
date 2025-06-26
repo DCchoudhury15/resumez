@@ -25,7 +25,7 @@ Resumez is a modern, full-stack web application that streamlines resume creation
   [View more screenshots in the frontend/public directory &rarr;](https://github.com/DCchoudhury15/resumez/tree/main/frontend/public)
 
 - **Demo Video:**  
-  [Watch the Resumez Demo on YouTube]()
+  [click for demo video](https://github.com/DCchoudhury15/resumez/blob/main/frontend/public/Untitled%20video%20-%20Made%20with%20Clipchamp%20(3).mp4)
 
 ---
 
