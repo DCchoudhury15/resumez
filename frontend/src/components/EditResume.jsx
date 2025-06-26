@@ -1,14 +1,39 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import DashboardLayout from './DashboardLayout';
-import { buttonStyles, containerStyles } from '../assets/dummystyle';
+import { buttonStyles, containerStyles, statusStyles } from '../assets/dummystyle';
 import { TitleInput } from './Input';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Download, Palette, Trash2 } from 'lucide-react';
+import { AlertCircle, ArrowLeft, Download, Palette, Trash2 } from 'lucide-react';
 import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths';
 import toast from 'react-hot-toast';
 import { fixTailwindColors } from '../utils/colors';
 import html2pdf from 'html2pdf.js'
+import StepProgress from './StepProgress';
+import {
+  AdditionalInfoForm,
+  CertificationInfoForm,
+  ContactInfoForm,
+  EducationDetailsForm,
+  ProfileInfoForm,
+  ProjectDetailForm,
+  SkillsInfoForm,
+  WorkExperienceForm,
+} from './Forms';
+import html2canvas from 'html2canvas';
+
+const dataURLtoFile = (dataurl, filename) => {
+  const arr = dataurl.split(',');
+  const mime = arr[0].match(/:(.*?);/)[1];
+  const bstr = atob(arr[1]);
+  let n = bstr.length;
+  const u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], filename, { type: mime });
+};
+
 
 const EditResume = () => {
          const useResizeObserver=()=>{
@@ -663,6 +688,27 @@ const EditResume = () => {
                   <span className='text-sm'>Preview</span>
                   </button>
                 </div>
+                </div>
+                <div className={containerStyles.grid}>
+                  <div className={containerStyles.formContainer}>
+                    <StepProgress progress={progress}/>
+                    {renderForm()}
+                    <div className='p-4 sm:p-6'>
+                      {errorMsg && (
+                        <div className={statusStyles.error}>
+                          <AlertCircle size={16}/>
+                          {errorMsg}
+                          </div>
+                      )}
+                      <div className='flex flex-wrap items-center justify-end gap-3'>
+                        <button className={buttonStyles.back} onClick={goBack} disabled={isLoading} >
+                             <ArrowLeft size={16}/>
+                             Back
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
             </div>
         </DashboardLayout>
