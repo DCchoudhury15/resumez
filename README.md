@@ -89,12 +89,7 @@ Please stick to the coding style and provide clear documentation for any code yo
 
 ---
 
-## 📄 License
 
-Licensed under the MIT License.  
-See the [LICENSE](LICENSE) file for details.
-
----
 
 ## 📬 Contact Information
 
@@ -102,34 +97,4 @@ See the [LICENSE](LICENSE) file for details.
 - **Repository:** [https://github.com/DCchoudhury15/resumez](https://github.com/DCchoudhury15/resumez)
 - For questions, open an issue or reach out via GitHub.
 
----
 
-> _Better resumes with code, made easy to follow!_
-
----
-
-## ℹ️ How to Add Video and Screenshot Links in Markdown
-
-### To add a screenshot:
-```markdown
-![Alt text for screenshot](PATH_OR_URL_TO_IMAGE)
-```
-_Example:_
-```markdown
-![App Screenshot](frontend/public/vite.svg)
-```
-
-### To add a video link:
-```markdown
-[Text to display](URL_TO_VIDEO)
-```
-_Example:_
-```markdown
-[Watch the Resumez Demo on YouTube](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-```
-
-> To embed a YouTube video directly (not all markdown renderers support this), use:
-```markdown
-[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-```
-Replace `YOUR_VIDEO_ID` with the actual ID of your YouTube video.
