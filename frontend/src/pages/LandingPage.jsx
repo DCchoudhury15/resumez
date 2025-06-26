@@ -148,6 +148,10 @@ const LandingPage = () => {
 +                                            <stop offset="0%" stopColor="#f1f5f9" />
 +                                            <stop offset="100%" stopColor="#e2e8f0" />
 +                                        </linearGradient>
+ <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
++                                            <stop offset="0%" stopColor="#f1f5f9" />
++                                            <stop offset="100%" stopColor="#e2e8f0" />
++                                        </linearGradient>
                                     </defs>
 
                                     {/* SVG elements */}
