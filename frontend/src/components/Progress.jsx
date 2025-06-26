@@ -1,6 +1,6 @@
 import React from "react";
 
-const Progress =({progress=0, totla=5, color, bgColor})=>{
+const Progress =({progress=0, total=5, color, bgColor})=>{
     return (
         <div className="flex gap-1.5">
             {[...Array(total)].map((_,index)=>(
@@ -10,10 +10,11 @@ const Progress =({progress=0, totla=5, color, bgColor})=>{
                     backgroundColor:
                     index<progress
                     ? color || "rgba(1,1,1,1)"
-                    : bgcolor || "rgba(1,1,1,0,1)"
+                    : bgColor || "rgba(1,1,1,0,1)"
                 }}>
                     </div>
             ))}
         </div>
     )
 }
+export default Progress;

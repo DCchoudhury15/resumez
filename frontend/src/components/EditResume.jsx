@@ -10,6 +10,30 @@ import toast from 'react-hot-toast';
 import { fixTailwindColors } from '../utils/colors';
 import html2pdf from 'html2pdf.js'
 import StepProgress from './StepProgress';
+import {
+  AdditionalInfoForm,
+  CertificationInfoForm,
+  ContactInfoForm,
+  EducationDetailsForm,
+  ProfileInfoForm,
+  ProjectDetailForm,
+  SkillsInfoForm,
+  WorkExperienceForm,
+} from './Forms';
+import html2canvas from 'html2canvas';
+
+const dataURLtoFile = (dataurl, filename) => {
+  const arr = dataurl.split(',');
+  const mime = arr[0].match(/:(.*?);/)[1];
+  const bstr = atob(arr[1]);
+  let n = bstr.length;
+  const u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], filename, { type: mime });
+};
+
 
 const EditResume = () => {
          const useResizeObserver=()=>{
@@ -676,7 +700,7 @@ const EditResume = () => {
                           {errorMsg}
                           </div>
                       )}
-                      <div className='flex fex-wrap items-center justify-end gap-3'>
+                      <div className='flex flex-wrap items-center justify-end gap-3'>
                         <button className={buttonStyles.back} onClick={goBack} disabled={isLoading} >
                              <ArrowLeft size={16}/>
                              Back
