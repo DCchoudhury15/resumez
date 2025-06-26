@@ -37,7 +37,6 @@ const dataURLtoFile = (dataurl, filename) => {
   return new File([u8arr], filename, { type: mime });
 };
 
-
 const EditResume = () => {
          const useResizeObserver=()=>{
             const [size, setsize]=useState({width:0, height:0});
