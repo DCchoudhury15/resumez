@@ -745,10 +745,10 @@ const EditResume = () => {
                 </div>
             </div>
             <Modal isOpen={openThemeSelector} onClose={()=>setOpenThemeSelector(false)}
-            title="Change Title">
+            title="Select Theme">
               <div className={containerStyles.modalContent}>
                 <ThemeSelector selectedTheme={resumeData?.template.theme}
-                setSelectedTheme={updateTheme} onClose={()=> setOpenThemeSelector(false)}
+                 setSelectedTheme={updateTheme} resumeData={resumeData} onClose={()=> setOpenThemeSelector(false)}
                 />
               </div>
             </Modal>
@@ -784,7 +784,7 @@ const EditResume = () => {
                         <RenderResume key={`pdf=${resumeData?.template?.theme}`}
                         templateId={resumeData?.template?.theme || ""}
                         resumeData={resumeData}
-                        constainerWidth={null}/>
+                        containerWidth={null}/>
                        </div>
                    </div>
                 </div>

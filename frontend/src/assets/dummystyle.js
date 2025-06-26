@@ -56,7 +56,7 @@ export const landingPageStyles = {
 
   // Hero illustration
   heroIllustration: "relative w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto",
-  heroIllustrationBg: "absolute -inset-8 bg-gradient-to-r from-violet-200/50 to-fuchsia-200/50 rounded-3xl blur-3xl ",
+  heroIllustrationBg: "",
   heroIllustrationContainer: "relative",
 
   // SVG styles

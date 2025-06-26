@@ -73,7 +73,7 @@ const ThemeSelector = ({selectedTheme, setSelectedTheme, resumeData, onClose}) =
     <RenderResume
       templateId={selectedTemplate?.theme || ""}
       resumeData={resumeData || DUMMY_RESUME_DATA}
-      constainerWidth={baseWidth}
+      containerWidth={baseWidth}
     />
   </div>
 </div>
