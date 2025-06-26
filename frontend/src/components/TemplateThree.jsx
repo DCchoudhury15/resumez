@@ -5,7 +5,7 @@ import { formatYearMonth } from "../utils/helper";
 
 const sectionTitleClass = "text-base font-bold uppercase tracking-wide mb-1 pb-1 border-b border-gray-300";
 
-const TemplateTwo = ({ resumeData = {}, containerWidth }) => {
+const TemplateThree= ({ resumeData = {}, containerWidth }) => {
   const {
     profileInfo = {},
     contactInfo = {},

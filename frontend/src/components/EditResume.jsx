@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import DashboardLayout from './DashboardLayout';
-import { buttonStyles, containerStyles, statusStyles } from '../assets/dummystyle';
+import { buttonStyles, containerStyles, iconStyles, statusStyles } from '../assets/dummystyle';
 import { TitleInput } from './Input';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AlertCircle, ArrowLeft, Download, Palette, Trash2 } from 'lucide-react';
+import { AlertCircle, ArrowLeft, Check, Download, Loader2, Palette, Save, Trash2 } from 'lucide-react';
 import axiosInstance from '../utils/axiosInstance';
 import { API_PATHS } from '../utils/apiPaths';
 import toast from 'react-hot-toast';
@@ -21,6 +21,9 @@ import {
   WorkExperienceForm,
 } from './Forms';
 import html2canvas from 'html2canvas';
+import RenderResume from './RenderResume';
+import Modal from './Modal';
+import ThemeSelector from './ThemeSelector';
 
 const dataURLtoFile = (dataurl, filename) => {
   const arr = dataurl.split(',');
@@ -705,12 +708,100 @@ const EditResume = () => {
                              <ArrowLeft size={16}/>
                              Back
                         </button>
+                        <button className={buttonStyles.save} onClick={uploadResumeImages} disabled={isLoading}>
+                           {isLoading ? <Loader2 size={16} className='animate-spin'/>
+                           : <Save size={16}/>}
+                           {isLoading ? "Saving..." : "Save & Exit"}
+                        </button>
+                        <button className={buttonStyles.next} onClick={validateAndNext} disabled={isLoading}>
+                              {currentPage ==="additionalInfo" && <Download size={16}/>}
+                              {currentPage ==="additionalInfo" ? "Preview & Download" : "Next"}
+                                {currentPage ==="additionalInfo" && <ArrowLeft size={16} className='rotate-180'/>}
+                        </button>
                       </div>
                     </div>
+                  </div>
+                  <div className='hidden lg:block'>
+                    <div className={containerStyles.previewContainer}>
+                      <div className='text-center mb-4'>
+                        <div className={statusStyles.completionBadge}>
+                             <div className={iconStyles.pulseDot}></div>
+                             <span >Preview -{completionPercentage}% Complete</span>
+                        </div>
+                      </div>
+                      <div className='preview-container relative' ref={previewContainerRef}>
+                       <div className={containerStyles.previewInner}>
+                                <RenderResume key={`preview-${resumeData?.template?.theme}`}
+                                templateId={resumeData?.template?.theme || ""}
+                                resumeData={resumeData}
+                                constainerWidth={previewWidth}
+                                />
+                       </div>
+                      </div>
+                    </div>
+
                   </div>
 
                 </div>
             </div>
+            <Modal isOpen={openThemeSelector} onClose={()=>setOpenThemeSelector(false)}
+            title="Change Title">
+              <div className={containerStyles.modalContent}>
+                <ThemeSelector selectedTheme={resumeData?.template.theme}
+                setSelectedTheme={updateTheme} onClose={()=> setOpenThemeSelector(false)}
+                />
+              </div>
+            </Modal>
+            <Modal isOpen={openPreviewModal} onClose={()=>setOpenPreviewModal(false)}
+            title={resumeData.title}
+            showActionBtn
+            actionBtnText={isDownloading ? "Generating..."
+              :downloadSuccess ?"Downloaded!": "Download PDF"
+            }
+            actionBtnIcon={
+              isDownloading?(
+                <Loader2 size={16} className='animate-spin'/>
+              ): 
+                downloadSuccess ?(
+                  <Check size={16} className='text-white'/>
+                
+              ): (
+                <Download size={16}/>
+              )
+            }
+            onActionClick={downloadPDF}>
+
+              <div className='relative'>
+                <div className='text-center mb-4'>
+                    <div className={statusStyles.modalBadge}>
+                         <div className={iconStyles.pulseDot}></div>
+                         <span>Completion: {completionPercentage}%</span>
+                    </div>
+                </div>
+                <div className={containerStyles.pdfPreview}>
+                   <div ref={resumeDownloadRef} className="a4-wrapper">
+                       <div className='w-full h-full'>
+                        <RenderResume key={`pdf=${resumeData?.template?.theme}`}
+                        templateId={resumeData?.template?.theme || ""}
+                        resumeData={resumeData}
+                        constainerWidth={null}/>
+                       </div>
+                   </div>
+                </div>
+
+              </div>
+
+            </Modal>
+
+            <div style={{display:"none"}} ref={thumbnailRef}>
+               <div className={containerStyles.hiddenThumbnail}>
+                  <RenderResume key={`thumb-${resumeData?.template?.theme}`}
+                  templateId={resumeData?.template?.theme || ""}
+                  resumeData={resumeData}
+                  />
+               </div>
+            </div>
+            
         </DashboardLayout>
     );
 };
