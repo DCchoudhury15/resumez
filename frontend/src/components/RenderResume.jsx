@@ -19,7 +19,7 @@ const RenderResume = ({
         )
         case"03":
         return(
-            <TemplateThree resumeData={resumeData} constainerWidth={containerWidth}/>
+            <TemplateThree resumeData={resumeData} containerWidth={containerWidth}/>
         
         )
         default:

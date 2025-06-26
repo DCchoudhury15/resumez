@@ -48,7 +48,7 @@ const ThemeSelector = ({selectedTheme, setSelectedTheme, resumeData, onClose}) =
   Apply Changes
 </button>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
+           <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
   <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-100 p-4 sm:p-6">
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[60vh] lg:max-h-[70vh] overflow-auto p-2">
       {resumeTemplates.map((template, index) => (
@@ -69,11 +69,12 @@ const ThemeSelector = ({selectedTheme, setSelectedTheme, resumeData, onClose}) =
   <div
     className="lg:col-span-3 bg-gradient-to-br from-white via-violet-50 to-fuchsia-50 rounded-3xl border border-violet-100 shadow-xl p-4 sm:p-8 flex items-center justify-center min-h-[400px]"
     ref={resumeRef}
+      style={{ minWidth: 350, maxWidth: 700, width: "100%" }}
   >
     <RenderResume
       templateId={selectedTemplate?.theme || ""}
       resumeData={resumeData || DUMMY_RESUME_DATA}
-      containerWidth={baseWidth}
+      containerWidth={baseWidth < 350 ? 350 : baseWidth > 700 ? 700 : baseWidth}
     />
   </div>
 </div>
