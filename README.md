@@ -19,7 +19,7 @@ Resumez is a modern, full-stack web application that streamlines resume creation
 
 ## 📸 Screenshots & Demo
 
-![App Screenshot](frontend/public/vite.svg)
+![App Screenshot](https://github.com/DCchoudhury15/resumez/blob/main/frontend/public/Screenshot%20(29).png)
 
 - **More Screenshots:**  
   [View more screenshots in the frontend/public directory &rarr;](https://github.com/DCchoudhury15/resumez/tree/main/frontend/public)
